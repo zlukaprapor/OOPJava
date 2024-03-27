@@ -3,10 +3,11 @@ package Lab8;
 import java.util.Objects;
 
 public class Animal {
+    private static int numberOfAnimals = 0;
     private String name;
     private int age;
     private String species;
-    private static int numberOfAnimals = 0;
+
 
     /**
      * Constructs an Animal object with the specified name, age, and species.
@@ -39,6 +40,9 @@ public class Animal {
      * @param other the Animal object to copy
      */
     public Animal(Animal other) {
+        if (other == null) {
+            throw new IllegalArgumentException("Animal to copy cannot be null.");
+        }
         this.name = other.name;
         this.age = other.age;
         this.species = other.species;
@@ -109,6 +113,7 @@ public class Animal {
      *
      * @return the total number of Animal objects created
      */
+
     public static int getNumberOfAnimals() {
         return numberOfAnimals;
     }
@@ -129,7 +134,8 @@ public class Animal {
             return false;
         }
         Animal other = (Animal) obj;
-        return age == other.age && Objects.equals(name, other.name) && Objects.equals(species, other.species);
+        return age == other.age && Objects.equals(name, other.name)
+                && Objects.equals(species, other.species);
     }
     /**
      * Returns a string representation of the animal.

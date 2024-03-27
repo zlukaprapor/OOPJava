@@ -35,7 +35,7 @@ public class AnimalDriver {
             // Змінюємо дані першого об'єкта
             dog.setName("Max");
             dog.setAge(7);
-            dog.setSpecies("Labrador");
+            dog.setSpecies("Cat");
             System.out.println("Animal 1 (updated): " + dog);
 
             // Перевіряємо знову роботу методу equals()
@@ -45,7 +45,7 @@ public class AnimalDriver {
             System.out.println("Number of animals created: " + Animal.getNumberOfAnimals());
 
             // Спроба створення об'єкта з недопустимими параметрами
-            // Animal invalidAnimal = new Animal("", -1, ""); // Розкоментуйте для перевірки винятку
+            Animal invalidAnimal = new Animal("", -1, ""); // Розкоментуйте для перевірки винятку
         } catch (IllegalArgumentException e) {
             System.out.println("IllegalArgumentException caught: " + e.getMessage());
         }
