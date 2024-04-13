@@ -1,12 +1,5 @@
 package Lab9;
-//Для демонстрації принципу агрегації, я створю новий клас Person,
-//який агрегує об'єкти класу Animal. У цьому випадку, клас Person
-//буде основним класом, який містить об'єкт класу Animal.
-//Цей клас містить поля для імені та віку особи, а також поле для
-// домашнього улюбленця (pet) типу Animal. Конструктор, гетери, сетери
-// та метод toString() визначені відповідно до вимог.
-// Тепер, клас Animal не є статичним членом,
-// але є об'єктом, який агрегується класом Person.
+
 public class Person {
     private String name;
     private int age;
@@ -33,7 +26,8 @@ public class Person {
         }
         this.name = name;
         this.age = age;
-        this.pet = pet;
+        this.pet = new Animal(pet); // Копіюємо об'єкт pet
+
     }
 
     /**
@@ -86,7 +80,7 @@ public class Person {
      * @return the pet of the person
      */
     public Animal getPet() {
-        return pet;
+        return new Animal(pet); // Повертаємо копію об'єкта pet
     }
 
     /**
@@ -99,7 +93,7 @@ public class Person {
         if (pet == null) {
             throw new IllegalArgumentException("Pet cannot be null.");
         }
-        this.pet = pet;
+        this.pet = new Animal(pet); // Копіюємо об'єкт pet
     }
 
     /**
@@ -111,5 +105,6 @@ public class Person {
     public String toString() {
         return "Name: " + name + ", Age: " + age + ", Pet: " + pet;
     }
+
 }
 
