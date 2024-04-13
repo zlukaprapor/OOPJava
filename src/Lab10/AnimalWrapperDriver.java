@@ -1,6 +1,25 @@
 package Lab10;
 
+// Tkachenko Oleksii
+// OOP Java
+// Lab 9 Var18
+// Кінцевий срок подання  16.04.2024
+// Використано часу- 60 хв
+// Це моя власна робота. Не було використано жодної несанкціонованої допомоги
+
+/**
+ * The AnimalWrapperDriver class demonstrates the usage of the AnimalWrapper class.
+ * It creates an Animal object, wraps it using the AnimalWrapper class, and demonstrates
+ * accessing the attributes of the wrapped animal.
+ */
 public class AnimalWrapperDriver {
+    /**
+     * The main method serves as the entry point of the program.
+     * It creates an Animal object, wraps it using the AnimalWrapper class, and prints
+     * information about the wrapped animal.
+     *
+     * @param args the command-line arguments (not used in this program)
+     */
     public static void main(String[] args) {
         // Створення об'єкта класу Animal
         Animal animal = new Animal("Leo", 3, "Lion");
