@@ -2,7 +2,7 @@ package Lab10;
 
 // Tkachenko Oleksii
 // OOP Java
-// Lab 9 Var18
+// Lab 10 Var18
 // Кінцевий срок подання  16.04.2024
 // Використано часу- 60 хв
 // Це моя власна робота. Не було використано жодної несанкціонованої допомоги
@@ -30,5 +30,12 @@ public class AnimalWrapperDriver {
         // Виведення інформації про тварину з використанням об'єкта класу AnimalWrapper
         System.out.println("Animal Info:");
         System.out.println(animalWrapper);
+
+        // Створення копії об'єкта класу AnimalWrapper з використанням конструктора копіювання
+        AnimalWrapper copiedAnimalWrapper = new AnimalWrapper(animalWrapper);
+
+        // Виведення інформації про копію тварини
+        System.out.println("Copied Animal Info:");
+        System.out.println(copiedAnimalWrapper);
     }
 }

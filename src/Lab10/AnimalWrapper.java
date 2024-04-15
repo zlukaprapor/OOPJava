@@ -12,9 +12,20 @@ public class AnimalWrapper {
         if (animal == null) {
             throw new IllegalArgumentException("Animal cannot be null.");
         }
+
         this.animal = new Animal(animal); // Використовуємо конструктор копіювання
     }
-
+    /**
+     * Copy constructor.
+     *
+     * @param other the AnimalWrapper object to copy
+     */
+    public AnimalWrapper(AnimalWrapper other) {
+        if (other == null) {
+            throw new IllegalArgumentException("AnimalWrapper to copy cannot be null.");
+        }
+        this.animal = new Animal(other.animal); // Використовуємо конструктор копіювання з Animal
+    }
     /**
      * Returns the name of the wrapped animal.
      *
@@ -66,6 +77,7 @@ public class AnimalWrapper {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
+
         AnimalWrapper other = (AnimalWrapper) obj;
         return animal.equals(other.animal);
     }

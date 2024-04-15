@@ -27,6 +27,7 @@ public class Animal {
         if (species == null || species.trim().isEmpty()) {
             throw new IllegalArgumentException("Species cannot be empty or null.");
         }
+
         this.name = name;
         this.age = age;
         this.species = species;
@@ -41,10 +42,12 @@ public class Animal {
         if (other == null) {
             throw new IllegalArgumentException("Animal to copy cannot be null.");
         }
+
         this.name = other.name;
         this.age = other.age;
         this.species = other.species;
     }
+
     /**
      * Returns the name of the animal.
      *
@@ -53,6 +56,7 @@ public class Animal {
     public String getName() {
         return name;
     }
+
     /**
      * Sets the name of the animal.
      *
@@ -63,8 +67,10 @@ public class Animal {
         if (name == null || name.trim().isEmpty()) {
             throw new IllegalArgumentException("Name cannot be empty or null.");
         }
+
         this.name = name;
     }
+
     /**
      * Returns the age of the animal.
      *
@@ -73,6 +79,7 @@ public class Animal {
     public int getAge() {
         return age;
     }
+
     /**
      * Sets the age of the animal.
      *
@@ -83,8 +90,10 @@ public class Animal {
         if (age <= 0) {
             throw new IllegalArgumentException("Age must be a positive integer.");
         }
+
         this.age = age;
     }
+
     /**
      * Returns the species of the animal.
      *
@@ -93,6 +102,7 @@ public class Animal {
     public String getSpecies() {
         return species;
     }
+
     /**
      * Sets the species of the animal.
      *
@@ -103,6 +113,7 @@ public class Animal {
         if (species == null || species.trim().isEmpty()) {
             throw new IllegalArgumentException("Species cannot be empty or null.");
         }
+
         this.species = species;
     }
 
@@ -121,10 +132,12 @@ public class Animal {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
+
         Animal other = (Animal) obj;
         return age == other.age && Objects.equals(name, other.name)
                 && Objects.equals(species, other.species);
     }
+
     /**
      * Returns a string representation of the animal.
      *
