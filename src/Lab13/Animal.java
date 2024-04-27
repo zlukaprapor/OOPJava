@@ -1,8 +1,8 @@
-package Lab12;
+package Lab13;
 
 import java.util.Objects;
 
-public class Animal {
+public abstract class Animal implements Comparable<Animal> {
     private String name;
     private int age;
     private String species;
@@ -136,6 +136,26 @@ public class Animal {
         return age == other.age
                 && Objects.equals(name, other.name)
                 && Objects.equals(species, other.species);
+    }
+
+
+    /**
+     * Compares this animal with the specified animal for order. Returns a negative integer, zero,
+     * or a positive integer as this animal is less than, equal to, or greater than the specified
+     * animal. Animals are compared based on their age.
+     *
+     * @param other the animal to be compared
+     * @return a negative integer, zero, or a positive integer as this animal is less than, equal to,
+     *         or greater than the specified animal
+     * @throws IllegalArgumentException if the specified object is not an instance of Animal
+     */
+    @Override
+    public int compareTo(Animal other) {
+        if (other instanceof Animal) {
+            return this.getAge() - other.getAge();
+        } else {
+            throw new IllegalArgumentException("Cannot compare Dog to a different animal type.");
+        }
     }
 
     /**

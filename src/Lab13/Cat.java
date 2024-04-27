@@ -1,8 +1,8 @@
-package Lab12;
+package Lab13;
 
 import java.util.Objects;
 
-public class Cat extends Animal  {
+public class Cat extends Animal {
     private String color;
 
     /**
