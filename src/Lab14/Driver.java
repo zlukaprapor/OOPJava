@@ -1,4 +1,4 @@
-package Lab13;
+package Lab14;
 
 // Tkachenko Oleksii
 // OOP Java
