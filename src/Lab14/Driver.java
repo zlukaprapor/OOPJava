@@ -2,27 +2,21 @@ package Lab14;
 
 // Tkachenko Oleksii
 // OOP Java
-// Lab 13 Var18
-// Кінцевий срок подання  29.04.2024
+// Lab 14 Var18
+// Кінцевий срок подання  30.04.2024
 // Використано часу- 60 хв
 // Це моя власна робота. Не було використано жодної несанкціонованої допомоги
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 /**
- * This class serves as the driver program to demonstrate abstract
+ * This class serves as the driver program to demonstrate abstraction
  * by creating instances of the Animal, Dog, and Cat classes and displaying their information.
+ * It also sorts the animals based on different criteria.
  */
 public class Driver {
-    /**
-     * Displays information about an Animal object.
-     *
-     * @param animal the Animal object to display information about
-     */
-    private static void display(Animal animal) {
-        System.out.println(animal);
-    }
 
     /**
      * The main method serves as the entry point of the program.
@@ -52,11 +46,46 @@ public class Driver {
             display(animal);
         }
 
-        // Display information about sorted each animal in the ArrayList
+        // **Sorting by Age (Default)**
         System.out.println("\nAnimals sorted by age:**");
         Collections.sort(animals);
         for (Animal animal : animals) {
             display(animal);
         }
+
+        // **Sorting by Name**
+        System.out.println("\nAnimals sorted by name:**");
+        Collections.sort(animals, new Comparator<Animal>() {
+            @Override
+            public int compare(Animal o1, Animal o2) {
+
+                return o1.getName().compareTo(o2.getName());
+            }
+        });
+        for (Animal animal : animals) {
+            display(animal);
+        }
+
+        // **Sorting by Species**
+        System.out.println("\nAnimals sorted by species:**");
+        Collections.sort(animals, new Comparator<Animal>() {
+            @Override
+            public int compare(Animal o1, Animal o2) {
+
+                return o1.getSpecies().compareTo(o2.getSpecies());
+            }
+        });
+        for (Animal animal : animals) {
+            display(animal);
+        }
     }
+    /**
+     * Displays information about an Animal object.
+     *
+     * @param animal the Animal object to display information about
+     */
+    private static void display(Animal animal) {
+        System.out.println(animal);
+    }
+
 }
