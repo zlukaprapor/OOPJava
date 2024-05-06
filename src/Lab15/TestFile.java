@@ -1,10 +1,23 @@
+/**
+ * TestFile class reads information from a file and creates Animal objects based on that information.
+ * It demonstrates file reading and exception handling.
+ */
+
 package Lab15;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class TestFile {
+
+    /**
+     * Reads information from a file and creates Animal objects based on that information.
+     * Prints error messages if there are any issues with reading or creating objects.
+     *
+     * @param args the command-line arguments (unused in this program)
+     */
     public static void main(String[] args) {
         ArrayList<Animal> animals = new ArrayList<>();
 
@@ -42,4 +55,3 @@ public class TestFile {
         }
     }
 }
-

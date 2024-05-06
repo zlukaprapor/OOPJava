@@ -3,3 +3,4 @@ Whiskers,2,Cat,Gray
 Fluffy,1,Cat,Persian
 Rex,-5,Dog,Golden Retriever
 Snowball,4,Rabbit,Mini Lop
+Rex,Dog,Golden Retriever
