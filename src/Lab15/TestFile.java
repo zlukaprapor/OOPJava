@@ -1,4 +1,12 @@
+// Tkachenko Oleksii
+// OOP Java
+// Lab 15 Var18
+// Кінцевий срок подання  6.05.2024
+// Використано часу- 60 хв
+// Це моя власна робота. Не було використано жодної несанкціонованої допомоги
+
 /**
+ *
  * TestFile class reads information from a file and creates Animal objects based on that information.
  * It demonstrates file reading and exception handling.
  */
