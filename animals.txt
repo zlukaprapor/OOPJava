@@ -1,6 +1,7 @@
+Rex,-5,Dog,Boxer
+Snowball,4,Rabbit,Lop
+Rex,Dog,Golden Retriever
 Max,3,Dog,Labrador
 Whiskers,2,Cat,Gray
 Fluffy,1,Cat,Persian
-Rex,-5,Dog,Golden Retriever
-Snowball,4,Rabbit,Mini Lop
-Rex,Dog,Golden Retriever
+Alf,7,Dog,Siam

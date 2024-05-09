@@ -1,8 +1,10 @@
-package Lab15;
+package Lab16;
 
 import java.util.Objects;
-
-public class Animal {
+import Lab16.CustomException.IllegalNameException;
+import Lab16.CustomException.IllegalSpeciesException;
+import Lab16.CustomException.IllegalAgeException;
+public class Animal implements Comparable<Animal> {
     private String name;
     private int age;
     private String species;
@@ -18,13 +20,13 @@ public class Animal {
      */
     public Animal(String name, int age, String species) {
         if (name == null || name.trim().isEmpty()) {
-            throw new IllegalArgumentException("Name cannot be empty or null.");
+            throw new IllegalNameException("Name cannot be empty or null.");
         }
         if (age <= 0) {
-            throw new IllegalArgumentException("Age must be a positive integer.");
+            throw new IllegalAgeException("Age must be a positive integer.");
         }
         if (species == null || species.trim().isEmpty()) {
-            throw new IllegalArgumentException("Species cannot be empty or null.");
+            throw new IllegalSpeciesException("Species cannot be empty or null.");
         }
 
         this.name = name;
@@ -139,6 +141,21 @@ public class Animal {
     }
 
     /**
+     * Compares this animal with the specified animal for order. Returns a negative integer, zero,
+     * or a positive integer as this animal is less than, equal to, or greater than the specified
+     * animal. Animals are compared based on their name.
+     *
+     * @param otherAnimal the animal to be compared
+     * @return a negative integer, zero, or a positive integer as this animal is less than, equal to,
+     *         or greater than the specified animal
+     * @throws IllegalArgumentException if the specified object is not an instance of Animal
+     */
+    @Override
+    public int compareTo(Animal otherAnimal) {
+        return this.name.compareTo(otherAnimal.getName());
+    }
+
+    /**
      * Returns a string representation of the animal.
      *
      * @return a string representation of the animal
@@ -146,7 +163,6 @@ public class Animal {
     @Override
     public String toString() {
         return "Name: " + name + ", Age: " + age + ", Species: " + species;
-
     }
 
 }
