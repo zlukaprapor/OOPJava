@@ -15,6 +15,7 @@ import java.util.Collections;
  * by creating instances of the Animal, Dog, and Cat classes and displaying their information.
  */
 public class Driver {
+
     /**
      * Displays information about an Animal object.
      *

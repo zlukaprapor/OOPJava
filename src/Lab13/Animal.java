@@ -151,6 +151,9 @@ public abstract class Animal implements Comparable<Animal> {
      */
     @Override
     public int compareTo(Animal other) {
+        if (other == null) {
+            throw new NullPointerException("Cannot compare to null.");
+        }
         if (other instanceof Animal) {
             return this.getAge() - other.getAge();
         } else {
