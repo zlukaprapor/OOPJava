@@ -80,5 +80,4 @@ public class Driver {
     private static void display(Animal animal) {
         System.out.println(animal);
     }
-
 }
