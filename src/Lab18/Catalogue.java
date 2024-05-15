@@ -6,6 +6,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The Catalogue class represents a collection of Animal items.
+ * It provides methods for adding new items to the catalogue and saving the catalogue to a text file.
+ */
 public class Catalogue {
     private List<Animal> items;
 

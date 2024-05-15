@@ -1,78 +1,42 @@
 // Tkachenko Oleksii
 // OOP Java
-// Lab 16 Var18
-// Кінцевий срок подання  13.05.2024
+// Lab 18 Var18
+// Кінцевий срок подання 24.05.2024
 // Використано часу- 60 хв
 // Це моя власна робота. Не було використано жодної несанкціонованої допомоги
 
 /**
- *
- * TestFile class reads information from a file and creates Animal objects based on that information.
- * It demonstrates file reading and exception handling.
+ * TestFile class demonstrates the functionality of reading information from a file
+ * and managing a catalogue of Animal objects through a menu-driven interface.
+ * It loads information from a file into the catalogue at the start of the program,
+ * displays a menu for user interaction, and saves the updated catalogue back to the file upon exit.
  */
-
 package Lab18;
 
-import Lab16.CustomException.*;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
 
 public class TestFile {
 
     /**
-     * Reads information from a file and creates Animal objects based on that information.
-     * Prints error messages if there are any issues with reading or creating objects.
+     * The main method of the TestFile class.
+     * It initializes a catalogue, loads information from a file into the catalogue,
+     * displays a menu for user interaction, and saves the updated catalogue back to the file upon exit.
      *
-     * @param args the command-line arguments (unused in this program)
+     * @param args the command-line arguments (unused)
      */
     public static void main(String[] args) {
-        ArrayList<Animal> animals = new ArrayList<>();
+        Catalogue catalogue = new Catalogue();
+        Menu menu = new Menu(catalogue);
 
-        try (BufferedReader br = new BufferedReader(new FileReader("animals.txt"))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] parts = line.split(",");
-                if (parts.length == 4) { // Assuming each line has 4 parts: name, age, species, breed
-                    try {
-                        // Create animal object based on the information read from the file
-                        Animal animal;
-                        if (parts[2].equals("Dog")) {
-                            animal = new Dog(parts[0], Integer.parseInt(parts[1]), parts[2], parts[3]);
-                        } else if (parts[2].equals("Cat")) {
-                            animal = new Cat(parts[0], Integer.parseInt(parts[1]), parts[2], parts[3]);
-                        } else {
-                            System.out.println("Unknown species: " + parts[2]);
-                            continue; // Skip this line and continue to the next one
-                        }
-                        animals.add(animal);
-                    } catch (IllegalBreedException|IllegalColorException|IllegalSpeciesException|IllegalAgeException|IllegalNameException e) {
-                        System.out.println("Error creating animal: " + e.getMessage());
-                    }
-                } else {
-                    System.out.println("Invalid line: " + line);
-                }
-            }
+        // Loading information from file at the start of the program
+        try {
+            catalogue.readInfoFromFile("catalogue.txt");
+            System.out.println("Catalogue loaded from file.");
         } catch (IOException e) {
-            System.out.println("Error reading file: " + e.getMessage());
+            System.out.println("Error loading catalogue from file: " + e.getMessage());
         }
 
-        // Display information about each animal in the ArrayList
-        for (Animal animal : animals) {
-            System.out.println(animal);
-        }
-
-        // Sort animals by name
-        Collections.sort(animals);
-
-        System.out.println("Sort animals by name");
-
-        // Display information about each animal after sorting
-        for (Animal animal : animals) {
-            System.out.println(animal);
-        }
+        // Displaying the menu for user interaction
+        menu.displayMenu();
     }
 }

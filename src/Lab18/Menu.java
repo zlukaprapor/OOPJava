@@ -2,10 +2,18 @@ package Lab18;
 
 import java.io.IOException;
 import java.util.Scanner;
-
+/**
+ * The Menu class provides a menu-driven interface for interacting with a catalogue of Animal objects.
+ * It allows users to add new items to the catalogue and save the catalogue to a file upon exit.
+ */
 public class Menu {
     private Catalogue catalogue;
 
+    /**
+     * Constructs a Menu object with the specified catalogue.
+     *
+     * @param catalogue the catalogue to interact with
+     */
     public Menu(Catalogue catalogue) {
         this.catalogue = catalogue;
     }

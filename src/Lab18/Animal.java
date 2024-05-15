@@ -144,16 +144,23 @@ public class Animal implements Comparable<Animal> {
     /**
      * Compares this animal with the specified animal for order. Returns a negative integer, zero,
      * or a positive integer as this animal is less than, equal to, or greater than the specified
-     * animal. Animals are compared based on their name.
+     * animal. Animals are compared based on their age.
      *
-     * @param otherAnimal the animal to be compared
+     * @param other the animal to be compared
      * @return a negative integer, zero, or a positive integer as this animal is less than, equal to,
      *         or greater than the specified animal
      * @throws IllegalArgumentException if the specified object is not an instance of Animal
      */
     @Override
-    public int compareTo(Animal otherAnimal) {
-        return this.name.compareTo(otherAnimal.getName());
+    public int compareTo(Animal other) {
+        if (other == null) {
+            throw new NullPointerException("Cannot compare to null.");
+        }
+        if (other instanceof Animal) {
+            return this.getAge() - other.getAge();
+        } else {
+            throw new IllegalArgumentException("Cannot compare Dog to a different animal type.");
+        }
     }
 
     /**
@@ -165,5 +172,4 @@ public class Animal implements Comparable<Animal> {
     public String toString() {
         return "Name: " + name + ", Age: " + age + ", Species: " + species;
     }
-
 }
