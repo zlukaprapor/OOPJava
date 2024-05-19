@@ -17,6 +17,7 @@ public class Dog extends Animal {
      */
     public Dog(String name, int age, String species, String breed) {
         super(name, age, species);
+
         if (breed == null || breed.trim().isEmpty()) {
             throw new IllegalBreedException("Breed cannot be empty or null.");
         }

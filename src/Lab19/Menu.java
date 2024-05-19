@@ -22,40 +22,37 @@ public class Menu {
      * Displays the menu options and handles user input.
      */
     public void displayMenu() {
-        Scanner scanner = new Scanner(System.in);
+        try (Scanner scanner = new Scanner(System.in)) {
+            while (true) {
+                System.out.println("\nMenu:");
+                System.out.println("1. Add a new item to catalogue");
+                System.out.println("2. Search for an item");
+                System.out.println("3. Display item information");
+                System.out.println("4. Display all items");
+                System.out.println("5. Exit");
 
-        // Displaying information about elements read from the file
+                System.out.print("Select an option: ");
+                int choice = scanner.nextInt();
 
-
-        while (true) {
-            System.out.println("\nMenu:");
-            System.out.println("1. Add a new item to catalogue");
-            System.out.println("2. Search for an item");
-            System.out.println("3. Display item information");
-            System.out.println("4. Display all items");
-            System.out.println("5. Exit");
-
-            System.out.print("Select an option: ");
-            int choice = scanner.nextInt();
-
-            switch (choice) {
-                case 1:
-                    addItemToCatalogue();
-                    break;
-                case 2:
-                    searchForItem();
-                    break;
-                case 3:
-                    displayItemInfo();
-                    break;
-                case 4:
-                    displayAllItems();
-                    break;
-                case 5:
-                    saveAndExit();
-                    return;
-                default:
-                    System.out.println("Invalid choice. Please try again.");
+                switch (choice) {
+                    case 1:
+                        addItemToCatalogue(scanner);
+                        break;
+                    case 2:
+                        searchForItem(scanner);
+                        break;
+                    case 3:
+                        displayItemInfo(scanner);
+                        break;
+                    case 4:
+                        displayAllItems();
+                        break;
+                    case 5:
+                        saveAndExit();
+                        return;
+                    default:
+                        System.out.println("Invalid choice. Please try again.");
+                }
             }
         }
     }
@@ -63,13 +60,11 @@ public class Menu {
     /**
      * Prompts the user for information about a new item and adds it to the catalogue.
      */
-    private void addItemToCatalogue() {
-        Scanner scanner = new Scanner(System.in);
-
+    private void addItemToCatalogue(Scanner scanner) {
         System.out.println("Adding a new item to catalogue:");
 
         System.out.print("Enter name: ");
-        String name = scanner.nextLine();
+        String name = scanner.next();
 
         System.out.print("Enter age: ");
         int age = scanner.nextInt();
@@ -98,9 +93,7 @@ public class Menu {
     /**
      * Prompts the user for the ID of an item to search for and displays the item if found.
      */
-    private void searchForItem() {
-        Scanner scanner = new Scanner(System.in);
-
+    private void searchForItem(Scanner scanner) {
         System.out.print("Enter item ID to search: ");
         int id = scanner.nextInt();
 
@@ -115,9 +108,7 @@ public class Menu {
     /**
      * Prompts the user for the ID of an item and displays information about the item.
      */
-    private void displayItemInfo() {
-        Scanner scanner = new Scanner(System.in);
-
+    private void displayItemInfo(Scanner scanner) {
         System.out.print("Enter item ID to display: ");
         int id = scanner.nextInt();
 
