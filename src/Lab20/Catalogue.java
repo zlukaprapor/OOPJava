@@ -1,4 +1,4 @@
-package Lab19;
+package Lab20;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -38,35 +38,6 @@ public class Catalogue {
             return items.get(id);
         }
         return null;
-    }
-
-    /**
-     * Updates an existing item in the catalogue.
-     *
-     * @param id   the ID of the item to update
-     * @param item the updated item
-     */
-    public void updateItem(int id, Animal item) {
-        if (id >= 0 && id < items.size()) {
-            items.set(id, item);
-            System.out.println("Item updated successfully.");
-        } else {
-            System.out.println("Item not found.");
-        }
-    }
-
-    /**
-     * Deletes an item from the catalogue by its ID.
-     *
-     * @param id the ID of the item to delete
-     */
-    public void deleteItem(int id) {
-        if (id >= 0 && id < items.size()) {
-            items.remove(id);
-            System.out.println("Item deleted successfully.");
-        } else {
-            System.out.println("Item not found.");
-        }
     }
 
     /**
