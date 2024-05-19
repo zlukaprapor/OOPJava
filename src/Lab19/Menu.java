@@ -25,15 +25,15 @@ public class Menu {
         Scanner scanner = new Scanner(System.in);
 
         // Displaying information about elements read from the file
-        System.out.println("\nItems loaded from file:");
-        for (Animal item : catalogue.getItems()) {
-            System.out.println(item);
-        }
+
 
         while (true) {
             System.out.println("\nMenu:");
             System.out.println("1. Add a new item to catalogue");
-            System.out.println("2. Exit");
+            System.out.println("2. Search for an item");
+            System.out.println("3. Display item information");
+            System.out.println("4. Display all items");
+            System.out.println("5. Exit");
 
             System.out.print("Select an option: ");
             int choice = scanner.nextInt();
@@ -43,6 +43,15 @@ public class Menu {
                     addItemToCatalogue();
                     break;
                 case 2:
+                    searchForItem();
+                    break;
+                case 3:
+                    displayItemInfo();
+                    break;
+                case 4:
+                    displayAllItems();
+                    break;
+                case 5:
                     saveAndExit();
                     return;
                 default:
@@ -84,6 +93,48 @@ public class Menu {
 
         catalogue.addNewItem(item);
         System.out.println("Item added to catalogue.");
+    }
+
+    /**
+     * Prompts the user for the ID of an item to search for and displays the item if found.
+     */
+    private void searchForItem() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter item ID to search: ");
+        int id = scanner.nextInt();
+
+        Animal item = catalogue.searchItem(id);
+        if (item != null) {
+            System.out.println("Item found: " + item);
+        } else {
+            System.out.println("Item not found.");
+        }
+    }
+
+    /**
+     * Prompts the user for the ID of an item and displays information about the item.
+     */
+    private void displayItemInfo() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter item ID to display: ");
+        int id = scanner.nextInt();
+
+        Animal item = catalogue.searchItem(id);
+        if (item != null) {
+            System.out.println("Item information: " + item);
+        } else {
+            System.out.println("Item not found.");
+        }
+    }
+
+    /**
+     * Displays information about all items in the catalogue.
+     */
+    private void displayAllItems() {
+        System.out.println("Displaying all items:");
+        catalogue.displayAllItems();
     }
 
     /**

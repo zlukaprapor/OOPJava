@@ -34,3 +34,9 @@ age=3
 species=cat
 color=t
 
+Dog
+name=Bob
+age=3
+species=Dog
+breed=Labrador
+

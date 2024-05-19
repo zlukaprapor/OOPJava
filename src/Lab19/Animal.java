@@ -1,9 +1,8 @@
 package Lab19;
 
-import Lab16.CustomException.IllegalAgeException;
-import Lab16.CustomException.IllegalNameException;
-import Lab16.CustomException.IllegalSpeciesException;
-
+import Lab19.CustomException.IllegalAgeException;
+import Lab19.CustomException.IllegalNameException;
+import Lab19.CustomException.IllegalSpeciesException;
 import java.util.Objects;
 public class Animal implements Comparable<Animal> {
     private String name;

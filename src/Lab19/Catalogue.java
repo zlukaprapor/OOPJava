@@ -12,15 +12,6 @@ public class Catalogue {
     private List<Animal> items;
 
     /**
-     * Returns the list of items in the catalogue.
-     *
-     * @return the list of items in the catalogue
-     */
-    public List<Animal> getItems() {
-        return items;
-    }
-
-    /**
      * Constructs a Catalogue object with an empty collection of items.
      */
     public Catalogue() {
@@ -34,6 +25,28 @@ public class Catalogue {
      */
     public void addNewItem(Animal item) {
         items.add(item);
+    }
+
+    /**
+     * Searches for an item in the catalogue by its ID.
+     *
+     * @param id the ID of the item to search for
+     * @return the item if found, otherwise null
+     */
+    public Animal searchItem(int id) {
+        if (id >= 0 && id < items.size()) {
+            return items.get(id);
+        }
+        return null;
+    }
+
+    /**
+     * Displays information about all items in the catalogue.
+     */
+    public void displayAllItems() {
+        for (int id = 0; id < items.size(); id++) {
+            System.out.println("Item ID: " + id + " - " + items.get(id));
+        }
     }
 
     /**
