@@ -3,6 +3,7 @@ package Lab19;
 import Lab19.CustomException.IllegalAgeException;
 import Lab19.CustomException.IllegalNameException;
 import Lab19.CustomException.IllegalSpeciesException;
+
 import java.util.Objects;
 public class Animal implements Comparable<Animal> {
     private String name;

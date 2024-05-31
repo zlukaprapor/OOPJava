@@ -1,7 +1,6 @@
 package Lab20;
 
 import Lab20.CustomException.IllegalColorException;
-
 import java.util.Objects;
 public class Cat extends Animal {
     private String color;

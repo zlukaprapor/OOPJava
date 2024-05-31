@@ -41,35 +41,6 @@ public class Catalogue {
     }
 
     /**
-     * Updates an existing item in the catalogue.
-     *
-     * @param id   the ID of the item to update
-     * @param item the updated item
-     */
-    public void updateItem(int id, Animal item) {
-        if (id >= 0 && id < items.size()) {
-            items.set(id, item);
-            System.out.println("Item updated successfully.");
-        } else {
-            System.out.println("Item not found.");
-        }
-    }
-
-    /**
-     * Deletes an item from the catalogue by its ID.
-     *
-     * @param id the ID of the item to delete
-     */
-    public void deleteItem(int id) {
-        if (id >= 0 && id < items.size()) {
-            items.remove(id);
-            System.out.println("Item deleted successfully.");
-        } else {
-            System.out.println("Item not found.");
-        }
-    }
-
-    /**
      * Displays information about all items in the catalogue.
      */
     public void displayAllItems() {

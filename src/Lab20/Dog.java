@@ -1,7 +1,6 @@
 package Lab20;
 
 import Lab20.CustomException.IllegalBreedException;
-
 import java.util.Objects;
 public class Dog extends Animal {
     private String breed;

@@ -27,9 +27,11 @@ public class Menu {
                 System.out.println("\nMenu:");
                 System.out.println("1. Add a new item to catalogue");
                 System.out.println("2. Search for an item");
-                System.out.println("3. Display item information");
-                System.out.println("4. Display all items");
-                System.out.println("5. Exit");
+                System.out.println("3. Update an item");
+                System.out.println("4. Delete an item");
+                System.out.println("5. Display item information");
+                System.out.println("6. Display all items");
+                System.out.println("7. Exit");
 
                 System.out.print("Select an option: ");
                 int choice = scanner.nextInt();
@@ -42,12 +44,18 @@ public class Menu {
                         searchForItem(scanner);
                         break;
                     case 3:
-                        displayItemInfo(scanner);
+                        updateItem(scanner);
                         break;
                     case 4:
-                        displayAllItems();
+                        deleteItem(scanner);
                         break;
                     case 5:
+                        displayItemInfo(scanner);
+                        break;
+                    case 6:
+                        displayAllItems();
+                        break;
+                    case 7:
                         saveAndExit();
                         return;
                     default:
@@ -103,6 +111,56 @@ public class Menu {
         } else {
             System.out.println("Item not found.");
         }
+    }
+
+    /**
+     * Prompts the user for the ID of an item and new information to update the item.
+     */
+    private void updateItem(Scanner scanner) {
+        System.out.print("Enter item ID to update: ");
+        int id = scanner.nextInt();
+
+        Animal currentItem = catalogue.searchItem(id);
+        if (currentItem != null) {
+            System.out.println("Enter updated information:");
+
+            System.out.print("Enter name: ");
+            String name = scanner.next();
+
+            System.out.print("Enter age: ");
+            int age = scanner.nextInt();
+
+            System.out.print("Enter species: ");
+            String species = scanner.next();
+
+            Animal updatedItem;
+            if (species.equalsIgnoreCase("dog")) {
+                System.out.print("Enter breed: ");
+                String breed = scanner.next();
+                updatedItem = new Dog(name, age, species, breed);
+            } else if (species.equalsIgnoreCase("cat")) {
+                System.out.print("Enter color: ");
+                String color = scanner.next();
+                updatedItem = new Cat(name, age, species, color);
+            } else {
+                System.out.println("Unknown species. Item not updated.");
+                return;
+            }
+
+            catalogue.updateItem(id, updatedItem);
+        } else {
+            System.out.println("Item not found.");
+        }
+    }
+
+    /**
+     * Prompts the user for the ID of an item to delete and deletes it from the catalogue.
+     */
+    private void deleteItem(Scanner scanner) {
+        System.out.print("Enter item ID to delete: ");
+        int id = scanner.nextInt();
+
+        catalogue.deleteItem(id);
     }
 
     /**

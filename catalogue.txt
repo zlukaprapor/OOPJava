@@ -1,6 +1,6 @@
-Cat
-name=Tom
-age=1
-species=Cat
-color=Black
+Dog
+name=Tuzik
+age=3
+species=Dog
+breed=Labrador
 
